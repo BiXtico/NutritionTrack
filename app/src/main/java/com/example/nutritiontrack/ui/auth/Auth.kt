@@ -6,26 +6,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
+import com.example.nutritiontrack.databinding.AboutFragmentBinding
+import com.example.nutritiontrack.databinding.AuthFragmentBinding
 
-class login : Fragment() {
+class Auth : Fragment() {
 
     companion object {
-        fun newInstance() = login()
+        fun newInstance() = Auth()
     }
 
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: AuthViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
+        val binding : AuthFragmentBinding = DataBindingUtil.inflate(layoutInflater
+            ,R.layout.auth_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         // TODO: Use the ViewModel
     }
 

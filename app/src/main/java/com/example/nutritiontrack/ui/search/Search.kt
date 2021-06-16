@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
+import com.example.nutritiontrack.databinding.AboutFragmentBinding
+import com.example.nutritiontrack.databinding.SearchFragmentBinding
 
-class search : Fragment() {
+class Search : Fragment() {
 
     companion object {
-        fun newInstance() = search()
+        fun newInstance() = Search()
     }
 
     private lateinit var viewModel: SearchViewModel
@@ -20,7 +23,9 @@ class search : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.search_fragment, container, false)
+        val binding : SearchFragmentBinding = DataBindingUtil.inflate(layoutInflater
+            ,R.layout.search_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
