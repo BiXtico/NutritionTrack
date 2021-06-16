@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
+import com.example.nutritiontrack.databinding.AboutFragmentBinding
+import com.example.nutritiontrack.databinding.RecommendationsFragmentBinding
 
-class recommendations : Fragment() {
+class Recommendations : Fragment() {
 
     companion object {
-        fun newInstance() = recommendations()
+        fun newInstance() = Recommendations()
     }
 
     private lateinit var viewModel: RecommendationsViewModel
@@ -20,7 +23,9 @@ class recommendations : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.recommendations_fragment, container, false)
+        val binding : RecommendationsFragmentBinding = DataBindingUtil.inflate(layoutInflater
+            ,R.layout.recommendations_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

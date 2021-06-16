@@ -1,4 +1,4 @@
-package com.example.nutritiontrack.ui.user
+package com.example.nutritiontrack.ui.auth
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,26 +6,31 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
+import com.example.nutritiontrack.databinding.AboutFragmentBinding
+import com.example.nutritiontrack.databinding.AuthFragmentBinding
 
-class user_info : Fragment() {
+class Auth : Fragment() {
 
     companion object {
-        fun newInstance() = user_info()
+        fun newInstance() = Auth()
     }
 
-    private lateinit var viewModel: UserInfoViewModel
+    private lateinit var viewModel: AuthViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.user_info_fragment, container, false)
+        val binding : AuthFragmentBinding = DataBindingUtil.inflate(layoutInflater
+            ,R.layout.auth_fragment, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserInfoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
