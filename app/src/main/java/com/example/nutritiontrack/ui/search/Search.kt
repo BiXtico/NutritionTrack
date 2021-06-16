@@ -13,10 +13,6 @@ import com.example.nutritiontrack.databinding.SearchFragmentBinding
 
 class Search : Fragment() {
 
-    companion object {
-        fun newInstance() = Search()
-    }
-
     private lateinit var viewModel: SearchViewModel
 
     override fun onCreateView(

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/navigation">
-
+    android:id="@+id/navigation"
+    app:startDestination="@id/auth">
+    <fragment
+        android:id="@+id/auth"
+        android:name="com.example.nutritiontrack.ui.auth.Auth"
+        android:label="Auth" >
+        <action
+            android:id="@+id/action_auth_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.nutritiontrack.ui.home.Home"
+        android:label="Home" />
 </navigation>

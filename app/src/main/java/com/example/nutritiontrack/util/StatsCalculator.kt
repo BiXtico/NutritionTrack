@@ -9,27 +9,26 @@ const val MALE_FACTOR = 5
 const val FEMALE_FACTOR = 161
 
 enum class ActivityLevel(val lvl: Double) {
-    SEDENTARY(1.2),
-    LIGHTLY_ACTIVE(1.375),
-    MODERATELY_ACTIVE(1.55),
-    VERY_ACTIVE(1.725),
-    EXTRA_ACTIVE(1.9)
+    Sedentary(1.2),
+    Light(1.375),
+    MODERATE(1.55),
+    VERY(1.725),
+    EXTRA(1.9)
 }
 
 enum class Gender(val lvl: Int) {
-    MALE(1),
-    FEMALE(2)
+    Male(1),
+    Female(2)
 }
 
 object StatusCalculator{
-
     fun calculateCalories(gender: Gender,activityLevel: ActivityLevel, weight: Double
                           , height: Int, age: Int) : Int {
         val calories = when (gender) {
-            Gender.MALE -> {
+            Gender.Male -> {
                 (WEIGHT_COST * weight + HEIGHT_COST * height + AGE_COST * age + MALE_FACTOR) * activityLevel.lvl
             }
-            Gender.FEMALE -> {
+            Gender.Female -> {
                 (WEIGHT_COST * weight + HEIGHT_COST * height + AGE_COST * age - FEMALE_FACTOR) * activityLevel.lvl
             }
         }

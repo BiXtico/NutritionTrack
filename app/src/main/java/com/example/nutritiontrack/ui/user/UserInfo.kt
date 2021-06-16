@@ -13,10 +13,6 @@ import com.example.nutritiontrack.databinding.UserInfoFragmentBinding
 
 class UserInfo : Fragment() {
 
-    companion object {
-        fun newInstance() = UserInfo()
-    }
-
     private lateinit var viewModel: UserInfoViewModel
 
     override fun onCreateView(
