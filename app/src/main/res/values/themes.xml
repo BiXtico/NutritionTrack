@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.NutritionTrack" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.NutritionTrack" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
@@ -18,6 +18,7 @@
     <style name="Widget.NutritionTrack.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
         <item name="hintTextColor">@color/secondaryDarkColor</item>
+        <item name="textAppearanceButton">?attr/textAppearanceSubtitle2</item>
         <item name="boxStrokeColor">@color/primaryDarkColor</item>
         <item name="boxBackgroundColor">@color/secondaryTextColor</item>
         <item name="errorTextColor">@color/colorError</item>
@@ -26,8 +27,8 @@
         <item name="boxCornerRadiusBottomStart">@dimen/mid_margin</item>
         <item name="boxCornerRadiusTopEnd">@dimen/mid_margin</item>
         <item name="boxCornerRadiusTopStart">@dimen/mid_margin</item>
-        <item name="android:layout_marginStart">@dimen/small_margin</item>
-        <item name="android:layout_marginEnd">@dimen/small_margin</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
+        <item name="android:layout_marginEnd">@dimen/mid_margin</item>
         <item name="android:layout_marginBottom">@dimen/small_margin</item>
 
     </style>
@@ -41,9 +42,9 @@
         <item name="boxCornerRadiusBottomStart">@dimen/mid_margin</item>
         <item name="boxCornerRadiusTopEnd">@dimen/mid_margin</item>
         <item name="boxCornerRadiusTopStart">@dimen/mid_margin</item>
-        <item name="android:layout_marginStart">@dimen/small_margin</item>
-        <item name="android:layout_marginEnd">@dimen/small_margin</item>
-        <item name="android:layout_marginBottom">@dimen/small_margin</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
+        <item name="android:layout_marginEnd">@dimen/mid_margin</item>
+        <item name="android:layout_marginBottom">@dimen/mid_margin</item>
     </style>
 
     <style name="Widget.NutritionTrack.outlinedButton" parent ="Widget.MaterialComponents.Button.OutlinedButton">
@@ -70,6 +71,15 @@
         <item name="android:layout_margin">@dimen/mid_margin_dp</item>
         <item name="backgroundTint">@color/colorBackground</item>
     </style>
+
+    <style name="Widget.NutritionTrack.Toolbar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@color/secondaryTextColor</item>
+        <item name="navigationIcon">@drawable/sharp_menu_24</item>
+        <item name="titleTextColor">@color/primaryColor</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+
+
 
 
 

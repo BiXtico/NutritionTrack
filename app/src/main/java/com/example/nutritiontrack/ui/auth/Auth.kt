@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.databinding.AuthFragmentBinding
@@ -27,8 +28,8 @@ class Auth : Fragment() {
         val binding: AuthFragmentBinding = DataBindingUtil.inflate(
             layoutInflater, R.layout.auth_fragment, container, false
         )
-
         itemsToTextField(binding)
+
 
         return binding.root
     }

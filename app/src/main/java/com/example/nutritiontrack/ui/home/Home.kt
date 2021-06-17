@@ -6,15 +6,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.databinding.AboutFragmentBinding
 import com.example.nutritiontrack.databinding.HomeFragmentBinding
+import com.google.android.material.appbar.AppBarLayout
 
 class Home : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
-    private lateinit var binding: HomeFragmentBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,6 +31,7 @@ class Home : Fragment() {
     ): View? {
         val binding : HomeFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.home_fragment, container, false)
+
         return binding.root
     }
 
