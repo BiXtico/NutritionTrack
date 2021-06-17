@@ -10,5 +10,12 @@
     <string name="acivity_Level">Activity Level</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="resgister">Create Account</string>
+    <string name="login">Login</string>
+    <string name="already_have_an_account">already have an account? Sign In</string>
+    <string name="does_not_have_an_account">Does not have an account? Sign In</string>
+
 
 </resources>

@@ -3,6 +3,15 @@
     <dimen name="small_margin">8sp</dimen>
     <dimen name="mid_margin">12sp</dimen>
     <dimen name="large_margin">18sp</dimen>
+    <dimen name="largest_margin">24dp</dimen>
+    <dimen name="border_dim">2dp</dimen>
+    <dimen name="tiny_margin_dp">3dp</dimen>
+    <dimen name="huge_margin_dp">32dp</dimen>
+    <dimen name="small_margin_dp">8dp</dimen>
+    <dimen name="mid_margin_dp">12dp</dimen>
+    <dimen name="large_margin_dp">24dp</dimen>
+
+
 
 
 

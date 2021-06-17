@@ -16,11 +16,56 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:id="@+id/auth_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                style="@style/Widget.NutritionTrack.header1"
+                android:text="@string/resgister"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/first_name"
+                    style="@style/Widget.NutritionTrack.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/first_name"
+                    app:singleLine="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Last_name"
+                    style="@style/Widget.NutritionTrack.TextInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/last_name"
+                    app:singleLine="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailField"
+                android:id="@+id/email_field"
                 style="@style/Widget.NutritionTrack.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -35,7 +80,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordField"
+                android:id="@+id/password_field"
                 style="@style/Widget.NutritionTrack.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,6 +188,21 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/login_register_button"
+                style="@style/Widget.NutritionTrack.outlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/resgister" />
+
+            <Button
+                android:id="@+id/auth_switch_button"
+                style="@style/Widget.NutritionTrack.ClickableText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/already_have_an_account" />
+
         </LinearLayout>
     </ScrollView>
 </layout>
