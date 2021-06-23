@@ -16,9 +16,6 @@
         android:name="com.example.nutritiontrack.ui.home.Home"
         android:label="Home" >
         <action
-            android:id="@+id/action_home2_to_about"
-            app:destination="@id/about" />
-        <action
             android:id="@+id/action_home2_to_search"
             app:destination="@id/search" />
         <action
@@ -28,10 +25,6 @@
             android:id="@+id/action_home2_to_userInfo"
             app:destination="@id/userInfo" />
     </fragment>
-    <fragment
-        android:id="@+id/about"
-        android:name="com.example.nutritiontrack.ui.about.About"
-        android:label="About" />
     <fragment
         android:id="@+id/recommendations"
         android:name="com.example.nutritiontrack.ui.recommendations.Recommendations"

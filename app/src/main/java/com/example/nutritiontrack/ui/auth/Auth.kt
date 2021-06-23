@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.databinding.AuthFragmentBinding
 import com.example.nutritiontrack.util.ActivityLevel
@@ -29,7 +30,9 @@ class Auth : Fragment() {
             layoutInflater, R.layout.auth_fragment, container, false
         )
         itemsToTextField(binding)
-
+        binding.loginRegisterButton.setOnClickListener {
+            this.findNavController().navigate(AuthDirections.actionAuthToHome2())
+        }
 
         return binding.root
     }

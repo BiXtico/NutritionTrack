@@ -7,31 +7,12 @@
 
     </data>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:elevation="0dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/app_bar"
-            style="@style/Widget.NutritionTrack.Toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:paddingStart="12dp"
-            android:paddingLeft="12dp"
-            android:paddingEnd="12dp"
-            android:paddingRight="12dp"
-            app:contentInsetStart="0dp"
-            app:menu="@menu/actionbar_menu"
-            app:title="@string/app_name" />
-    </com.google.android.material.appbar.AppBarLayout>
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/view_grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </androidx.core.widget.NestedScrollView>
-
+</LinearLayout>
 
 
 
