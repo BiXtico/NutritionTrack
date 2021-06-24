@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Item" android:id="@+id/search" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Item"
+        android:id="@+id/auth"
+        app:showAsAction="always"
+        android:icon="@drawable/outline_search_24"/>
+    <item android:title="Item"
+        android:id="@+id/search"
+        app:showAsAction="always"
+        android:icon="@drawable/outline_account_circle_24"/>
 </menu>

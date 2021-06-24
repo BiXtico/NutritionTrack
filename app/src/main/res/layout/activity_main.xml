@@ -23,7 +23,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:menu="@menu/actionbar_menu"
-                app:title="@string/app_name" />
+                app:title="@string/app_name"
+                app:collapseIcon="@drawable/outline_account_circle_24"
+                app:titleTextAppearance="?attr/titleTextAppearance"/>
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.fragment.app.FragmentContainerView

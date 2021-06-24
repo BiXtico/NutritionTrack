@@ -74,9 +74,10 @@
 
     <style name="Widget.NutritionTrack.Toolbar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:background">@color/secondaryTextColor</item>
-        <item name="navigationIcon">@drawable/outline_account_circle_24</item>
-        <item name="titleTextColor">@color/primaryColor</item>
+        <item name="titleTextColor">@color/primaryDarkColor</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+
     </style>
 
     <style name="Theme.App" parent="Theme.MaterialComponents.DayNight">
