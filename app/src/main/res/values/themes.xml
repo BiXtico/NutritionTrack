@@ -85,8 +85,9 @@
     </style>
 
 
-
-
-
+    <style name="Widget.NutritionTrack.bottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/secondaryTextColor</item>
+        <item name="elevation">12dp</item>
+    </style>
 
 </resources>

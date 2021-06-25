@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation"
-    app:startDestination="@id/auth">
+    app:startDestination="@id/home2">
     <fragment
         android:id="@+id/auth"
         android:name="com.example.nutritiontrack.ui.auth.Auth"
@@ -24,11 +24,24 @@
         <action
             android:id="@+id/action_home2_to_userInfo"
             app:destination="@id/userInfo" />
+        <action
+            android:id="@+id/action_home2_to_auth"
+            app:destination="@id/auth" />
     </fragment>
     <fragment
         android:id="@+id/recommendations"
         android:name="com.example.nutritiontrack.ui.recommendations.Recommendations"
-        android:label="Recommendations" />
+        android:label="Recommendations" >
+        <action
+            android:id="@+id/action_recommendations_to_userInfo"
+            app:destination="@id/userInfo" />
+        <action
+            android:id="@+id/action_recommendations_to_meal"
+            app:destination="@id/meal" />
+        <action
+            android:id="@+id/action_recommendations_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
     <fragment
         android:id="@+id/search"
         android:name="com.example.nutritiontrack.ui.search.Search"
