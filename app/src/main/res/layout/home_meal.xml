@@ -1,61 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card"
-    app:cardCornerRadius="@dimen/largest_margin"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="meal"
+            type="com.example.nutritiontrack.database.Meal" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/mid_margin">
+        android:layout_margin="8dp"
+        app:cardCornerRadius="@dimen/largest_margin">
 
-        <ImageView
-            android:id="@+id/meal_icon"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="@+id/meal_name"
-            app:layout_constraintEnd_toStartOf="@+id/meal_name"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/meal_name"
-            app:srcCompat="@drawable/outline_restaurant_24" />
+            android:orientation="horizontal"
+            android:padding="@dimen/mid_margin">
 
-        <TextView
-            android:id="@+id/meal_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/app_name"
-            android:layout_marginStart="@dimen/small_margin"
-            android:textAppearance="?attr/textAppearanceBody1"
-            app:layout_constraintStart_toEndOf="@+id/meal_icon"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/meal_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/meal_name"
+                app:layout_constraintEnd_toStartOf="@+id/meal_name"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/meal_name"
+                app:srcCompat="@drawable/outline_restaurant_24" />
 
-        <TextView
-            android:id="@+id/meal_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/app_name"
-            android:textAppearance="?attr/textAppearanceSubtitle2"
-            app:layout_constraintStart_toStartOf="parent"
-            android:textColor="?android:attr/textColorSecondary"
-            app:layout_constraintTop_toBottomOf="@+id/meal_name" />
+            <TextView
+                android:id="@+id/meal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintStart_toEndOf="@+id/meal_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:mealName="@{meal}"
+                tools:text="@string/app_name" />
 
-        <TextView
-            android:id="@+id/meal_calories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/app_name"
-            android:textAppearance="?attr/textAppearanceListItemSmall"
-            android:textColor="@color/primaryDarkColor"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/meal_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceSubtitle2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/meal_name"
+                tools:text="@string/app_name"
+                app:mealAmount="@{meal}"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/meal_calories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceListItemSmall"
+                android:textColor="@color/primaryDarkColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name"
+                app:mealCalories="@{meal}"/>
 
-</com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

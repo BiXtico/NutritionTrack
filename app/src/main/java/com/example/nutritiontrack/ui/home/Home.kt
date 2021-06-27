@@ -33,7 +33,10 @@ class Home : Fragment() {
         val binding : HomeFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.home_fragment, container, false)
 
+        val adapter = MealListAdapter()
+        binding.mealList.adapter = adapter
 
+        //add the viewmodel data of the adapter to be set again
 
         return binding.root
     }
