@@ -90,4 +90,12 @@
         <item name="elevation">12dp</item>
     </style>
 
+    <style name="Widget.NutritionTrack.nutrients" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/secondaryDarkColor</item>
+        <item name="android:textSize">@dimen/large_margin</item>
+
+    </style>
+
+
+
 </resources>

@@ -1,20 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.meals.meal">
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/meal_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/largest_margin"
+            android:padding="@dimen/mid_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/outline_restaurant_24" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello" />
+            android:id="@+id/meal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_margin"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            app:layout_constraintBottom_toBottomOf="@+id/meal_icon"
+            app:layout_constraintStart_toEndOf="@+id/meal_icon"
+            app:layout_constraintTop_toTopOf="@+id/meal_icon"
+            tools:text="@string/app_name" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/constraint"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="245" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/filledTextField"
+            style="@style/Widget.NutritionTrack.TextInputLayout"
+            android:layout_width="120sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mid_margin"
+            android:hint="@string/amount_hint_text"
+            app:layout_constraintBottom_toBottomOf="@+id/login_register_button"
+            app:layout_constraintEnd_toEndOf="@+id/calories"
+            app:layout_constraintStart_toStartOf="@+id/calories"
+            app:layout_constraintTop_toTopOf="@+id/login_register_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="@dimen/nutrients_box"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/calories"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/calories"
+            app:layout_constraintTop_toTopOf="@+id/calories">
+
+            <TextView
+                android:id="@+id/amount"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Amount:" />
+
+            <TextView
+                android:id="@+id/amount_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/amount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/amount"
+                tools:text="300" />
+
+            <TextView
+                android:id="@+id/total_fat"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/amount"
+                tools:text="Total fat:" />
+
+            <TextView
+                android:id="@+id/total_fat_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/total_fat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/total_fat"
+                tools:text="245 mg" />
+
+            <TextView
+                android:id="@+id/sugar"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/total_fat"
+                tools:text="Suger:" />
+
+            <TextView
+                android:id="@+id/sugar_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/sugar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sugar"
+                tools:text="288 mg" />
+
+            <TextView
+                android:id="@+id/sodium"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sugar"
+                tools:text="Sodium:" />
+
+            <TextView
+                android:id="@+id/sodium_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:layout_constraintBottom_toBottomOf="@+id/sodium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/sodium"
+                tools:text="245 mg" />
+
+            <TextView
+                android:id="@+id/protein"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sodium"
+                tools:text="Protein:" />
+
+            <TextView
+                android:id="@+id/protein_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/protein"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/protein"
+                tools:text=" 245 mg" />
+
+            <TextView
+                android:id="@+id/saurated_fat"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/protein"
+                tools:text="Saterated fat:" />
+
+            <TextView
+                android:id="@+id/saurated_fat_value"
+                style="@style/Widget.NutritionTrack.nutrients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/saurated_fat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/saurated_fat"
+                tools:text="245 mg" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/login_register_button"
+            style="@style/Widget.NutritionTrack.outlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_meal"
+            app:layout_constraintEnd_toEndOf="@+id/constraint"
+            app:layout_constraintStart_toStartOf="@+id/constraint"
+            app:layout_constraintTop_toBottomOf="@+id/constraint" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

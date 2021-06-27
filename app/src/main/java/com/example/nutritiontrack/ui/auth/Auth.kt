@@ -34,6 +34,8 @@ class Auth : Fragment() {
             this.findNavController().navigate(AuthDirections.actionAuthToHome2())
         }
 
+
+
         return binding.root
     }
 

@@ -16,6 +16,13 @@
     <string name="login">Login</string>
     <string name="already_have_an_account">already have an account? Sign In</string>
     <string name="does_not_have_an_account">Does not have an account? Sign In</string>
+    <string name="add_">+ Add</string>
+    <string name="calories">Total Calories</string>
+    <string name="Amount_hint">1</string>
+    <string name="add_meal">Add</string>
+    <string name="amount_hint_text">Amount</string>
+    <string name="search_text">Search</string>
+    <string name="save_text">Save</string>
 
 
 </resources>

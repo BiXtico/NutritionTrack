@@ -10,9 +10,7 @@
     <dimen name="small_margin_dp">8dp</dimen>
     <dimen name="mid_margin_dp">12dp</dimen>
     <dimen name="large_margin_dp">24dp</dimen>
-
-
-
+    <dimen name="nutrients_box">220sp</dimen>
 
 
 </resources>
