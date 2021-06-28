@@ -20,6 +20,7 @@ class Recommendations : Fragment() {
     ): View? {
         val binding : RecommendationsFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.recommendations_fragment, container, false)
+        binding.lifecycleOwner = this
         return binding.root
     }
 

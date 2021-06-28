@@ -20,6 +20,9 @@ class Search : Fragment() {
     ): View? {
         val binding : SearchFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.search_fragment, container, false)
+
+        binding.lifecycleOwner = this
+
         return binding.root
     }
 

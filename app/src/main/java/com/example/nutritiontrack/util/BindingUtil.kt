@@ -24,3 +24,17 @@ fun TextView.setMealAmount(item: Meal?){
         text = item.amount.toString()
     }
 }
+
+@BindingAdapter("resultMealName")
+fun TextView.setResultName(item: Meal?){
+    item?.let {
+        text = item.name
+    }
+}
+
+@BindingAdapter("resultMealCalories")
+fun TextView.setResultCalories(item: Meal?){
+    item?.let {
+        text = item.calories.toString()
+    }
+}

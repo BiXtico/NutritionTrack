@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -33,9 +34,16 @@ class Home : Fragment() {
         val binding : HomeFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.home_fragment, container, false)
 
-        val adapter = MealListAdapter()
+        viewModel= ViewModelProvider(this).get(HomeViewModel::class.java)
+        val adapter = MealListAdapter(MealClickListener {
+            mealId ->  //to do (navigate to to the meal page to display the needed meal)
+        })
+        binding.lifecycleOwner = this
         binding.mealList.adapter = adapter
 
+        viewModel.calories.observe(viewLifecycleOwner, Observer { newCalories ->
+            binding.textView.text = newCalories.toString()
+        })
         //add the viewmodel data of the adapter to be set again
 
         return binding.root
@@ -43,7 +51,7 @@ class Home : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+
         // TODO: Use the ViewModel
     }
 
