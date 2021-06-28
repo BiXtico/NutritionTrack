@@ -8,14 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
-import com.example.nutritiontrack.databinding.AboutFragmentBinding
 import com.example.nutritiontrack.databinding.RecommendationsFragmentBinding
 
 class Recommendations : Fragment() {
-
-    companion object {
-        fun newInstance() = Recommendations()
-    }
 
     private lateinit var viewModel: RecommendationsViewModel
 

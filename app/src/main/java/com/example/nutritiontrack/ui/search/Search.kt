@@ -8,14 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.nutritiontrack.R
-import com.example.nutritiontrack.databinding.AboutFragmentBinding
 import com.example.nutritiontrack.databinding.SearchFragmentBinding
 
 class Search : Fragment() {
-
-    companion object {
-        fun newInstance() = Search()
-    }
 
     private lateinit var viewModel: SearchViewModel
 
