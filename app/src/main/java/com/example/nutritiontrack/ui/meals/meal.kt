@@ -20,13 +20,11 @@ class meal : Fragment() {
     ): View? {
         val binding : MealFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.meal_fragment, container, false)
+
+        viewModel = ViewModelProvider(this).get(MealViewModel::class.java)
+
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MealViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

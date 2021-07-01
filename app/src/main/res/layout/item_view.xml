@@ -6,7 +6,7 @@
     <data>
         <variable
             name="resultMeal"
-            type="com.example.nutritiontrack.database.Meal" />
+            type="com.example.nutritiontrack.domain.Meal" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -12,7 +12,7 @@
        android:layout_height="match_parent">
 
        <com.google.android.material.textfield.TextInputLayout
-           android:id="@+id/email_field"
+           android:id="@+id/search_field"
            style="@style/Widget.NutritionTrack.TextInputLayout"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -22,19 +22,22 @@
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toTopOf="parent"
            app:singleLine="true">
-
            <com.google.android.material.textfield.TextInputEditText
+               android:id="@+id/Search_text_edit"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:inputType="textEmailAddress" />
        </com.google.android.material.textfield.TextInputLayout>
 
        <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/search_result"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:layout_margin="@dimen/mid_margin"
+           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/email_field" />
+           app:layout_constraintTop_toBottomOf="@+id/search_field" />
+
    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

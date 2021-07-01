@@ -20,14 +20,10 @@ class Recommendations : Fragment() {
     ): View? {
         val binding : RecommendationsFragmentBinding = DataBindingUtil.inflate(layoutInflater
             ,R.layout.recommendations_fragment, container, false)
+        viewModel = ViewModelProvider(this).get(RecommendationsViewModel::class.java)
         binding.lifecycleOwner = this
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RecommendationsViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -1,15 +1,20 @@
 package com.example.nutritiontrack.ui.home
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.nutritiontrack.database.Meal
-import com.example.nutritiontrack.network.API
-import retrofit2.Call
-import retrofit2.Callback
+import com.example.nutritiontrack.database.getInstance
+import com.example.nutritiontrack.domain.DataRepository
+import com.example.nutritiontrack.domain.Meal
+import com.google.firebase.auth.FirebaseAuth
 import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(app: Application) : ViewModel() {
+
+    private val database = getInstance(app)
+    private val repository = DataRepository(database)
+
 
     private val _calories = MutableLiveData<String?>()
     val calories : LiveData<String?>
@@ -22,24 +27,11 @@ class HomeViewModel : ViewModel() {
     init {
         _addedMeals.value = null
         _calories.value = ""
-        getAllData()
     }
 
-    private fun setCalories(){
-//        _addedMeals.value?.forEach { it ->
-//            _calories.value?.minus(it.calories)
-//        }
-    }
-    private fun getAllData(){
-        API.retrofitService.getMeals().enqueue(object: Callback<String>{
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                _calories.value = response.body()
-            }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                _calories.value = "Failure" + t.message
-            }
-        })
-    }
+
+
+
 
 }

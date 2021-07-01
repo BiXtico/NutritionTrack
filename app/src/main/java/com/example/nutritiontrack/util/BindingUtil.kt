@@ -2,7 +2,7 @@ package com.example.nutritiontrack.util
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.example.nutritiontrack.database.Meal
+import com.example.nutritiontrack.domain.Meal
 
 @BindingAdapter("mealName")
 fun TextView.setMealName(item: Meal?){

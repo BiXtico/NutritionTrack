@@ -1,33 +1,29 @@
 package com.example.nutritiontrack.database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 @Dao
 interface DAO {
     //Meal
-    @Insert
-    fun insert(meal: Meal)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(meal: DatabaseMeal)
     @Update
-    fun update(meal: Meal)
-    @Query("select * from meal_table where date = :key" )
-    fun getMeal(key:Long): Meal
+    fun update(meal: DatabaseMeal)
+    @Query("select * from meal_table")
+    fun getAllMeals(): LiveData<List<DatabaseMeal>>
     @Query("delete from meal_table")
     fun clearMeals()
     @Query("delete from meal_table where mealId = :key")
     fun deleteMeal(key:Long)
 
     //User
-    @Insert
-    fun insert(user: User)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(user: DatabaseUser)
     @Update
-    fun update(user: User)
+    fun update(user: DatabaseUser)
     @Query("select * from USER_TABLE where id = :key" )
-    fun getUser(key:Long): User
+    fun getUser(key:Long): LiveData<DatabaseUser>
     @Query("delete from user_table")
     fun clearUsers()
-    @Query("delete from user_table where id = :key")
-    fun deleteUser(key:Long)
 }

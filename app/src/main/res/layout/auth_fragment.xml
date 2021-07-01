@@ -16,20 +16,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/auth_header"
+                style="@style/Widget.NutritionTrack.header1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
-                style="@style/Widget.NutritionTrack.header1"
-                android:text="@string/resgister"/>
+                android:text="@string/resgister"
+                android:textAlignment="center" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
-                android:weightSum="2"
-                android:baselineAligned="false">
+                android:weightSum="2">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/first_name"
@@ -41,6 +42,7 @@
                     app:singleLine="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName" />
@@ -57,6 +59,7 @@
                     app:singleLine="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Last_name_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName" />
@@ -66,24 +69,22 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/email_field"
                 style="@style/Widget.NutritionTrack.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/email"
-                app:singleLine="true"
-                app:endIconMode="clear_text">
+                app:endIconMode="clear_text"
+                app:singleLine="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    />
+                    android:inputType="textEmailAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password_field"
                 style="@style/Widget.NutritionTrack.TextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -92,6 +93,7 @@
                 app:singleLine="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -113,6 +115,7 @@
                     app:singleLine="true">
 
                     <AutoCompleteTextView
+                        android:id="@+id/activity_level_menu_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none" />
@@ -129,6 +132,7 @@
                     app:singleLine="true">
 
                     <AutoCompleteTextView
+                        android:id="@+id/gender_menu_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="none" />
@@ -147,6 +151,7 @@
                 app:singleLine="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/weight_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -169,6 +174,7 @@
                     app:singleLine="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/height_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number" />
@@ -186,6 +192,7 @@
                     app:singleLine="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/age_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number" />

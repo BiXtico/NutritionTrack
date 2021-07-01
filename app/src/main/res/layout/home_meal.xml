@@ -7,7 +7,7 @@
 
         <variable
             name="meal"
-            type="com.example.nutritiontrack.database.Meal" />
+            type="com.example.nutritiontrack.domain.Meal" />
 
         <variable
             name="clickListener"

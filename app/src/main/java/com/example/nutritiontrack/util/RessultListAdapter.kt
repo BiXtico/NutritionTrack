@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.nutritiontrack.database.Meal
+import com.example.nutritiontrack.domain.Meal
 import com.example.nutritiontrack.databinding.ItemViewBinding
 
 class RessultListAdapter :

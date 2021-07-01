@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         setSupportActionBar(binding.appBar)
         navController = navHostFragment.navController
-        appBarConfiguration = AppBarConfiguration(setOf(R.id.home2, R.id.recommendations))
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.home2, R.id.recommendations,R.id.auth))
         binding.appBar.setupWithNavController(navController, appBarConfiguration)
 
         //setting the bottom navigation with the navigation controller
@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavigation.isVisible = false
             }
         }
+
+
+
+
     }
     //setting the navigation graph with the options menu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
