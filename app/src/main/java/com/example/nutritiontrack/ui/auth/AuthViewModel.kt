@@ -30,7 +30,15 @@ class AuthViewModel() : ViewModel() {
     }
 
     fun modelSignIn(email :String, password : String){
-        _navigateHome.value = signIn(email, password)
+        signIn(email,password)
+        if (getAuthenticationInstance() !=null){
+            _navigateHome.value = true
+            Log.i("Firebase", "createUserWithEmail:failure")
+        }
+    }
+
+    fun doneNavigating(){
+        _navigateHome.value = false
     }
 
     fun switchToSignIn(){

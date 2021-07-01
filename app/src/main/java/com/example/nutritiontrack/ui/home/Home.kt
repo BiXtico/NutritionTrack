@@ -34,9 +34,18 @@ class Home : Fragment() {
             MealListAdapter(MealClickListener { mealId ->  //to do (navigate to to the meal page to display the needed meal)
             })
 
+        viewModel.authenticated.observe(viewLifecycleOwner, Observer { firebaseUser ->
+            if(firebaseUser == null){
+                findNavController().navigate(HomeDirections.actionHome2ToAuth())
+            }else{
+                //TODO get and show information
+            }
+        })
+
         binding.addButton.setOnClickListener {
             this.findNavController().navigate(HomeDirections.actionHome2ToSearch())
         }
+
         binding.lifecycleOwner = this
         binding.mealList.adapter = adapter
 

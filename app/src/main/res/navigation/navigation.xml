@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/auth">
+    app:startDestination="@id/home2">
     <fragment
         android:id="@+id/auth"
         android:name="com.example.nutritiontrack.ui.auth.Auth"

@@ -86,9 +86,11 @@ class Auth : Fragment() {
          * Navigate to home fragment after the live data changes
          * due to the sign in or create account call
          * **/
-        viewModel.navigateHome.observe(viewLifecycleOwner, {
-            if (it)
+        viewModel.navigateHome.observe(viewLifecycleOwner, Observer{ firebaseUser ->
+            if (firebaseUser) {
                 findNavController().navigate(AuthDirections.actionAuthToHome2())
+                viewModel.doneNavigating()
+            }
         })
         return binding.root
     }
