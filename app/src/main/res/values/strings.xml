@@ -24,6 +24,11 @@
     <string name="search_text">Search</string>
     <string name="save_text">Save</string>
     <string name="addHomeFragment">Add +</string>
+    <string name="text_field_empty">Field is Empty</string>
+    <string name="invalid_email">Invalid Email</string>
+
+
+
 
 
 </resources>
