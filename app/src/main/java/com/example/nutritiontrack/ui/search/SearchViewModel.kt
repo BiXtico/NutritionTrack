@@ -30,17 +30,17 @@ class SearchViewModel(app: Application) : ViewModel() {
         get() = _searchString
 
 
-    fun search(searchableString: String) {
-        coroutineScope.launch {
-            if (searchableString.isEmpty()) {
-                _searchedMeals.value = emptyList()
-            } else {
-                _searchedMeals.value = repository.getSearchableItems()
-                // TODO get the data from the repository and assign it to the searchedMeals
-                // TODO set the recycler view to view the contents of the list of _searchedMeals
-            }
-        }
-    }
+//    fun search(searchableString: String) {
+//        coroutineScope.launch {
+//            if (searchableString.isEmpty()) {
+//                _searchedMeals.value = emptyList()
+//            } else {
+//                _searchedMeals.value = repository.getSearchableItems()
+//                // TODO get the data from the repository and assign it to the searchedMeals
+//                // TODO set the recycler view to view the contents of the list of _searchedMeals
+//            }
+//        }
+//    }
 
     override fun onCleared() {
         viewModelJob.cancel()

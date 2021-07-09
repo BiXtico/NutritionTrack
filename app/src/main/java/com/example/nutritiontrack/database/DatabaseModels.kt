@@ -11,7 +11,7 @@ import com.example.nutritiontrack.util.Gender
 @Entity(tableName = "meal_table")
 data class DatabaseMeal(
     @PrimaryKey(autoGenerate = true)
-    var mealId: Long = 0L,
+    var mealId: Int,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "calories")
@@ -32,7 +32,7 @@ data class DatabaseMeal(
 @Entity(tableName = "user_table")
 data class DatabaseUser(
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0L,
+    var id: Int,
     @ColumnInfo(name = "firstName")
     val firstName: String,
     @ColumnInfo(name = "lastName")

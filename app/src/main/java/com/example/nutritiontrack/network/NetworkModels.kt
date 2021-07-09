@@ -9,18 +9,16 @@ import com.example.nutritiontrack.util.Gender
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
-data class NetworkMealContainer(val meals: List<NetworkMeal>)
 
-@JsonClass(generateAdapter = true)
 data class NetworkMeal(
-    @Json(name = "id") var mealId: Long = 0L,
+    var mealId: Int,
     val name: String,
-    val nutrition: Array<Double>, // the json property might be an array
+    val nutrition: List<Double>,
 )
 
+
 data class NetworkUser(
-    var id: Long = 0L,
+    var id: Int,
     val firstName: String,
     val lastName: String,
     val gender: Gender,
@@ -30,9 +28,9 @@ data class NetworkUser(
     val age: Int
 )
 
-fun NetworkMealContainer.mealAsDomainModel():List<Meal>{
+fun List<NetworkMeal>.mealAsDomainModel():List<Meal>{
     Log.i("inNetworkModel", "mealAsDomainModel called for conversion")
-    return meals.map{
+    return map{
         Meal(
             name = it.name,
             mealId = it.mealId,
@@ -47,8 +45,8 @@ fun NetworkMealContainer.mealAsDomainModel():List<Meal>{
     }
 }
 
-fun NetworkMealContainer.mealAsDatabaseModel(): Array<DatabaseMeal>{
-    return meals.map {
+fun List<NetworkMeal>.mealAsDatabaseModel(): Array<DatabaseMeal>{
+    return map {
         DatabaseMeal(
             name = it.name,
             mealId = it.mealId,
@@ -62,3 +60,6 @@ fun NetworkMealContainer.mealAsDatabaseModel(): Array<DatabaseMeal>{
         )
     }.toTypedArray()
 }
+
+
+

@@ -2,7 +2,6 @@ package com.example.nutritiontrack.ui.auth
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,9 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.authentication.authUser
-import com.example.nutritiontrack.authentication.createAccount
 import com.example.nutritiontrack.authentication.getAuthenticationInstance
-import com.example.nutritiontrack.authentication.signIn
 import com.example.nutritiontrack.databinding.AuthFragmentBinding
 import com.example.nutritiontrack.util.ActivityLevel
 import com.example.nutritiontrack.util.Gender
@@ -30,14 +27,14 @@ class Auth : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: AuthFragmentBinding = DataBindingUtil.inflate(
             layoutInflater, R.layout.auth_fragment, container, false
         )
         itemsToTextField(binding)
         viewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
-        viewModel.signInpageActive.observe(viewLifecycleOwner, Observer {
+        viewModel.signInpageActive.observe(viewLifecycleOwner, {
             if (!it) {
                 binding.authHeader.text = getString(R.string.resgister)
                 binding.firstName.isVisible = true
@@ -83,7 +80,7 @@ class Auth : Fragment() {
                     val age = binding.ageText.toString().trim()
 
                     if(validForCreateAccount(binding)) {
-                        createAccount(email, password)
+                        viewModel.modelCreateAccount(email, password)
                     }
 
                     // TODO make the button load with a spinning weel to indicate that it's loading
@@ -98,7 +95,7 @@ class Auth : Fragment() {
          * Navigate to home fragment after the live data changes
          * due to the sign in or create account call
          * **/
-        authUser.observe(viewLifecycleOwner, Observer { firebaseUser ->
+        authUser.observe(viewLifecycleOwner, { firebaseUser ->
             if (firebaseUser != null) {
                 findNavController().navigate(AuthDirections.actionAuthToHome2())
             }
@@ -174,16 +171,20 @@ class Auth : Fragment() {
     private fun validForSignIn(binding: AuthFragmentBinding): Boolean {
         val email = binding.emailFieldText.text.toString().trim()
         val password = binding.passwordFieldText.text.toString().trim()
-        if(email.isEmpty()) {
-            binding.emailField.isErrorEnabled = true
-            binding.emailField.error = getString(R.string.text_field_empty)
-            return false
-        }else if(getSignInEmailValid(email)){
-            binding.emailField.isErrorEnabled = true
-            binding.emailField.error = getString(R.string.invalid_email)
-            return false
-        }else {
-            binding.emailField.isErrorEnabled = false
+        when {
+            email.isEmpty() -> {
+                binding.emailField.isErrorEnabled = true
+                binding.emailField.error = getString(R.string.text_field_empty)
+                return false
+            }
+            !getSignInEmailValid(email) -> {
+                binding.emailField.isErrorEnabled = true
+                binding.emailField.error = getString(R.string.invalid_email)
+                return false
+            }
+            else -> {
+                binding.emailField.isErrorEnabled = false
+            }
         }
         if(password.isEmpty()) {
             binding.passwordField.isErrorEnabled = true

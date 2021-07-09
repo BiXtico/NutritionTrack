@@ -2,14 +2,12 @@ package com.example.nutritiontrack.domain
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.nutritiontrack.database.AppDatabase
 import com.example.nutritiontrack.database.mealsAsDomainModel
-import com.example.nutritiontrack.network.API
-import com.example.nutritiontrack.network.NetworkMealContainer
+import com.example.nutritiontrack.network.getMeals
 import com.example.nutritiontrack.network.mealAsDomainModel
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class DataRepository(database: AppDatabase) {
@@ -18,30 +16,17 @@ class DataRepository(database: AppDatabase) {
         it.mealsAsDomainModel()
     }
 
-    suspend fun getSearchableItems(): List<Meal> {
-        Log.i("in Repository", "getSearchableItems() called")
+    //todo user information
 
-        val meals: NetworkMealContainer = API.retrofitService.getMealsAsync().await()
-        return meals.mealAsDomainModel()
-    }
+    // network meal list
 
+    // send and register new user
 
-//    private fun getAllData() : MutableLiveData<List<NetworkMeal>?> {
-//        val data = MutableLiveData<List<NetworkMeal>?>()
-//        API.retrofitService.getMealsAsync().enqueue(object: Callback<List<NetworkMeal>> {
-//
-//            override fun onResponse(
-//                call: Call<List<NetworkMeal>>,
-//                response: Response<List<NetworkMeal>>
-//            ){
-//                data.value = response.body()
-//            }
-//
-//            override fun onFailure(call: Call<List<NetworkMeal>>, t: Throwable) {
-//                //TODO display metwork error problem
-//            }
-//        })
-//        return data
+//    suspend fun print() {
+//        val domainMeals = getMeals()?.mealAsDomainModel().
+//        if (domainMeals != null)
+//            for(meal in domainMeals)
+//                Log.i("data", "${meal.sodium}")
 //    }
 
 

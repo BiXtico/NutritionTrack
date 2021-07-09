@@ -7,7 +7,8 @@
     <fragment
         android:id="@+id/auth"
         android:name="com.example.nutritiontrack.ui.auth.Auth"
-        android:label="Auth">
+        android:label="Auth"
+        tools:layout="@layout/auth_fragment">
         <action
             android:id="@+id/action_auth_to_home2"
             app:destination="@id/home2" />
@@ -15,7 +16,8 @@
     <fragment
         android:id="@+id/home2"
         android:name="com.example.nutritiontrack.ui.home.Home"
-        android:label="Today">
+        android:label="Today"
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_home2_to_search"
             app:destination="@id/search" />
@@ -32,7 +34,8 @@
     <fragment
         android:id="@+id/recommendations"
         android:name="com.example.nutritiontrack.ui.recommendations.Recommendations"
-        android:label="Recommended For You">
+        android:label="Recommended For You"
+        tools:layout="@layout/recommendations_fragment">
         <action
             android:id="@+id/action_recommendations_to_userInfo"
             app:destination="@id/userInfo" />
@@ -46,7 +49,8 @@
     <fragment
         android:id="@+id/search"
         android:name="com.example.nutritiontrack.ui.search.Search"
-        android:label="Search" >
+        android:label="Search"
+        tools:layout="@layout/search_fragment">
         <action
             android:id="@+id/action_search_to_meal"
             app:destination="@id/meal" />
@@ -54,9 +58,11 @@
     <fragment
         android:id="@+id/meal"
         android:name="com.example.nutritiontrack.ui.meals.meal"
-        android:label="Meal" />
+        android:label="Meal"
+        tools:layout="@layout/meal_fragment"/>
     <fragment
         android:id="@+id/userInfo"
         android:name="com.example.nutritiontrack.ui.user.UserInfo"
-        android:label="UserInfo" />
+        android:label="UserInfo"
+        tools:layout="@layout/user_info_fragment"/>
 </navigation>

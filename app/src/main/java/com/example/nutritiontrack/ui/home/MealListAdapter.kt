@@ -46,6 +46,6 @@ object MealDiffCallback : DiffUtil.ItemCallback<Meal>() {
         return oldItem.mealId == newItem.mealId
     }
 }
-class MealClickListener(val clickListener:(mealId:Long) -> Unit){
+class MealClickListener(val clickListener:(mealId:Int) -> Unit){
     fun onClick(meal : Meal) = clickListener(meal.mealId)
 }

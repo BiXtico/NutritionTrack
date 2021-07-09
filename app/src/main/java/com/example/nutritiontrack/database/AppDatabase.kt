@@ -9,7 +9,6 @@ import androidx.room.Room
 @Database(entities = [DatabaseMeal::class,DatabaseUser::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract val dao: DAO
-
 }
 
 @Volatile

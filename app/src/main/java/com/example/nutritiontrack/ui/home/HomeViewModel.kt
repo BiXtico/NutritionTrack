@@ -34,6 +34,7 @@ class HomeViewModel(app: Application) : ViewModel() {
         _addedMeals.value = null
         _calories.value = ""
         _authenticated.value = getAuthenticationInstance()
+        repository.print()
     }
 
 

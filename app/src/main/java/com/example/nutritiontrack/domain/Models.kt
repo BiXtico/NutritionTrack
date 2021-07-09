@@ -5,7 +5,7 @@ import com.example.nutritiontrack.util.Gender
 
 
 data class Meal(
-    var mealId: Long = 0L,
+    var mealId: Int = 0,
     val name: String,
     val calories: Double,
     val amount: Double,
@@ -17,7 +17,7 @@ data class Meal(
 )
 
 data class User(
-    var id: Long = 0L,
+    var id: Int = 0,
     val firstName: String,
     val lastName: String,
     val gender: Gender,
