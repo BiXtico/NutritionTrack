@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nutritiontrack.domain.Meal
 import com.example.nutritiontrack.databinding.ItemViewBinding
+import com.example.nutritiontrack.ui.home.MealClickListener
 
-class RessultListAdapter :
-    ListAdapter<Meal, RessultListAdapter.ResultViewHolder>(MealDiffCallback) {
+class ResultListAdapter(val clickListener: MealClickListener) :
+    ListAdapter<Meal, ResultListAdapter.ResultViewHolder>(MealDiffCallback) {
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(item, clickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {
@@ -22,8 +23,9 @@ class RessultListAdapter :
 
     class ResultViewHolder private constructor(private val binding: ItemViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: Meal) {
+        fun bind(item: Meal, clickListener: MealClickListener) {
             binding.resultMeal = item
+            binding.clickListner = clickListener
             binding.executePendingBindings()
         }
 

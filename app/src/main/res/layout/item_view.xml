@@ -7,13 +7,18 @@
         <variable
             name="resultMeal"
             type="com.example.nutritiontrack.domain.Meal" />
+
+        <variable
+            name="clickListner"
+            type="com.example.nutritiontrack.ui.home.MealClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="@dimen/mid_margin">
+        android:padding="@dimen/mid_margin"
+        android:onClick="@{() -> clickListner.onClick(resultMeal)}">
 
         <ImageView
             android:id="@+id/meal_icon"
@@ -35,7 +40,7 @@
             android:textAppearance="?attr/textAppearanceBody1"
             app:layout_constraintStart_toEndOf="@+id/meal_icon"
             app:layout_constraintTop_toTopOf="parent"
-            app:resultMealName="@{resultMeal}"
+            app:mealName="@{resultMeal}"
             tools:text="@string/app_name" />
 
         <TextView
@@ -45,10 +50,9 @@
             android:layout_marginTop="@dimen/tiny_margin_dp"
             android:textAppearance="?attr/textAppearanceListItemSmall"
             android:textColor="@color/primaryDarkColor"
-            app:layout_constraintEnd_toEndOf="@+id/meal_name"
             app:layout_constraintStart_toStartOf="@+id/meal_name"
             app:layout_constraintTop_toBottomOf="@+id/meal_name"
-            app:resultMealCalories="@{resultMeal}"
+            app:mealCalories="@{resultMeal}"
             tools:text="@string/app_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

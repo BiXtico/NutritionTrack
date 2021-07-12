@@ -5,22 +5,34 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.nutritiontrack.database.AppDatabase
 import com.example.nutritiontrack.database.mealsAsDomainModel
-import com.example.nutritiontrack.network.getMeals
+import com.example.nutritiontrack.network.FirebaseDataStore
+import com.example.nutritiontrack.network.NetworkMeal
 import com.example.nutritiontrack.network.mealAsDomainModel
-import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.DisposableHandle
+import kotlinx.coroutines.withContext
 
 
-class DataRepository(database: AppDatabase) {
+class DataRepository(database: AppDatabase, private val fireStoreDatabase: FirebaseDataStore) {
 
     val todayMeals: LiveData<List<Meal>> = Transformations.map(database.dao.getAllMeals()) {
         it.mealsAsDomainModel()
     }
+
+
+    suspend fun getAllMeals() {
+        withContext(Dispatchers.IO) {
+            val meals = fireStoreDatabase.getMeals()
+        }
+    }
+
 
     //todo user information
 
     // network meal list
 
     // send and register new user
+
 
 //    suspend fun print() {
 //        val domainMeals = getMeals()?.mealAsDomainModel().

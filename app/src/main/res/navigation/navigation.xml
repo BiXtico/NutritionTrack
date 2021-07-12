@@ -54,12 +54,17 @@
         <action
             android:id="@+id/action_search_to_meal"
             app:destination="@id/meal" />
+
     </fragment>
     <fragment
         android:id="@+id/meal"
         android:name="com.example.nutritiontrack.ui.meals.meal"
         android:label="Meal"
-        tools:layout="@layout/meal_fragment"/>
+        tools:layout="@layout/meal_fragment">
+        <argument
+            android:name="meaId"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/userInfo"
         android:name="com.example.nutritiontrack.ui.user.UserInfo"

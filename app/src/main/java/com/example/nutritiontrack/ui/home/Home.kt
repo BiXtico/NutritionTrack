@@ -11,9 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.databinding.HomeFragmentBinding
-import com.example.nutritiontrack.network.getMeals
-import com.example.nutritiontrack.ui.search.SearchViewModel
-import com.example.nutritiontrack.ui.search.SearchViewModelFactory
 
 
 class Home : Fragment() {

@@ -1,6 +1,7 @@
 package com.example.nutritiontrack.ui.search
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,20 +9,23 @@ import com.example.nutritiontrack.database.AppDatabase
 import com.example.nutritiontrack.database.getInstance
 import com.example.nutritiontrack.domain.DataRepository
 import com.example.nutritiontrack.domain.Meal
+import com.example.nutritiontrack.network.FirebaseDataStore
+import com.example.nutritiontrack.network.NetworkMeal
+import com.example.nutritiontrack.network.getFireStore
 import kotlinx.coroutines.*
 
 class SearchViewModel(app: Application) : ViewModel() {
 
     private var viewModelJob = Job()
-    private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    private val uiScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     private val database = getInstance(app)
-    private val repository = DataRepository(database)
+    private val firestoreDatabase = getFireStore()
+    private val repository = DataRepository(database, firestoreDatabase)
 
 
-    private val _searchedMeals = MutableLiveData<List<Meal>>()
     val searchedMeals: LiveData<List<Meal>>
-        get() = _searchedMeals
+        get() = firestoreDatabase.meaList
 
 
     //TODO not used yet
@@ -29,6 +33,17 @@ class SearchViewModel(app: Application) : ViewModel() {
     val searchString: LiveData<String>
         get() = _searchString
 
+    init {
+        if (firestoreDatabase.meaList.value.isNullOrEmpty()) {
+            getAllMeals()
+        }
+    }
+
+    private fun getAllMeals() {
+        uiScope.launch {
+            repository.getAllMeals()
+        }
+    }
 
 //    fun search(searchableString: String) {
 //        coroutineScope.launch {

@@ -70,8 +70,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="770" />
-                            <option name="y" value="281" />
+                            <option name="x" value="822" />
+                            <option name="y" value="203" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -120,6 +120,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_search_to_meal">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_search_to_meal2">
                               <value>
                                 <LayoutPositions />
                               </value>

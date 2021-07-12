@@ -4,10 +4,12 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.nutritiontrack.authentication.authUser
 import com.example.nutritiontrack.authentication.getAuthenticationInstance
 import com.example.nutritiontrack.database.getInstance
 import com.example.nutritiontrack.domain.DataRepository
 import com.example.nutritiontrack.domain.Meal
+import com.example.nutritiontrack.network.getFireStore
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import retrofit2.Response
@@ -15,7 +17,8 @@ import retrofit2.Response
 class HomeViewModel(app: Application) : ViewModel() {
 
     private val database = getInstance(app)
-    private val repository = DataRepository(database)
+    private val firestoreDatabase = getFireStore()
+    private val repository = DataRepository(database,firestoreDatabase)
 
     private val _authenticated = MutableLiveData<FirebaseUser?>()
     val authenticated: LiveData<FirebaseUser?>
@@ -34,7 +37,6 @@ class HomeViewModel(app: Application) : ViewModel() {
         _addedMeals.value = null
         _calories.value = ""
         _authenticated.value = getAuthenticationInstance()
-        repository.print()
     }
 
 

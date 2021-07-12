@@ -8,7 +8,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.nutritiontrack.authentication.authUser
 import com.example.nutritiontrack.authentication.createAccount
-import com.example.nutritiontrack.authentication.getAuthenticationInstance
 import com.example.nutritiontrack.authentication.signIn
 
 import com.google.firebase.auth.FirebaseAuth
@@ -19,10 +18,6 @@ class AuthViewModel() : ViewModel() {
     private val _signInPageActive = MutableLiveData<Boolean>()
     val signInpageActive: LiveData<Boolean>
         get() = _signInPageActive
-
-    //todo used this for the authentication check before the navigation
-    val firebaseUser : LiveData<FirebaseUser?>
-        get() = authUser
 
     init {
         _signInPageActive.value = false

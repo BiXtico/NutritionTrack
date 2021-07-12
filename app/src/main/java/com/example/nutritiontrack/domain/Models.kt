@@ -8,7 +8,7 @@ data class Meal(
     var mealId: Int = 0,
     val name: String,
     val calories: Double,
-    val amount: Double,
+    var amount: Double,
     val totalFat: Double,
     val suger: Double,
     val sodium: Double,

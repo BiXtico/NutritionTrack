@@ -34,13 +34,13 @@ fun List<NetworkMeal>.mealAsDomainModel():List<Meal>{
         Meal(
             name = it.name,
             mealId = it.mealId,
-            calories = it.nutrition[0],
+            calories = it.nutrition.elementAt(0),
             amount = 0.0,
-            totalFat = it.nutrition[1],
-            suger = it.nutrition[2],
-            sodium = it.nutrition[3],
-            protein = it.nutrition[4],
-            sateratedFat = it.nutrition[5]
+            totalFat = it.nutrition.elementAt(1),
+            suger = it.nutrition.elementAt(2),
+            sodium = it.nutrition.elementAt(3),
+            protein = it.nutrition.elementAt(4),
+            sateratedFat = it.nutrition.elementAt(5)
         )
     }
 }
@@ -50,13 +50,13 @@ fun List<NetworkMeal>.mealAsDatabaseModel(): Array<DatabaseMeal>{
         DatabaseMeal(
             name = it.name,
             mealId = it.mealId,
-            calories = it.nutrition[0],
+            calories = it.nutrition.elementAt(0),
             amount = 0.0,
-            totalFat = it.nutrition[1],
-            suger = it.nutrition[2],
-            sodium = it.nutrition[3],
-            protein = it.nutrition[4],
-            sateratedFat = it.nutrition[5]
+            totalFat = it.nutrition.elementAt(1),
+            suger = it.nutrition.elementAt(2),
+            sodium = it.nutrition.elementAt(3),
+            protein = it.nutrition.elementAt(4),
+            sateratedFat = it.nutrition.elementAt(5)
         )
     }.toTypedArray()
 }

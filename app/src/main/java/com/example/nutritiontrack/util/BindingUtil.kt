@@ -25,16 +25,36 @@ fun TextView.setMealAmount(item: Meal?){
     }
 }
 
-@BindingAdapter("resultMealName")
-fun TextView.setResultName(item: Meal?){
+@BindingAdapter("mealTotalFat")
+fun TextView.setMealTotalFat(item: Meal?){
     item?.let {
-        text = item.name
+        text = item.totalFat.toString()
     }
 }
 
-@BindingAdapter("resultMealCalories")
-fun TextView.setResultCalories(item: Meal?){
+@BindingAdapter("mealSuger")
+fun TextView.setMealSuger(item:Meal?){
     item?.let {
-        text = item.calories.toString()
+        text = item.suger.toString()
     }
 }
+
+@BindingAdapter("mealSodium")
+fun TextView.setMealSodium(item:Meal?){
+    item?.let {
+        text = item.sodium.toString()
+    }
+}
+@BindingAdapter("mealProtein")
+fun TextView.setMealProtein(item:Meal?){
+    item?.let{
+        text = item.protein.toString()
+    }
+}
+@BindingAdapter("mealSateratedFat")
+fun TextView.setMealSateratedFat(item:Meal?){
+    item?.let {
+        text = item.sateratedFat.toString()
+    }
+}
+

@@ -8,14 +8,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.nutritiontrack.R
 import com.example.nutritiontrack.databinding.SearchFragmentBinding
-import com.example.nutritiontrack.util.RessultListAdapter
-import kotlin.concurrent.timer
+import com.example.nutritiontrack.ui.home.MealClickListener
+import com.example.nutritiontrack.util.ResultListAdapter
 
 class Search : Fragment() {
 
@@ -31,12 +30,21 @@ class Search : Fragment() {
         viewModel = ViewModelProvider(this,SearchViewModelFactory(requireActivity().application)).get(SearchViewModel::class.java)
         binding.lifecycleOwner = this
 
-        val adapter = RessultListAdapter()
+        val adapter = ResultListAdapter(MealClickListener { 
+            mealId ->  findNavController().navigate(SearchDirections.actionSearchToMeal(mealId))
+        })
         binding.searchResult.adapter = adapter
 
         viewModel.searchedMeals.observe(viewLifecycleOwner, Observer { meals ->
             meals?.let { adapter.submitList(meals) }
         })
+
+
+//        viewModel.searchedMeals.observe(viewLifecycleOwner, { meals ->
+//            if(meals != null){
+//                Log.i("fineData", "This is meals ${meals.elementAt(0).calories}")
+//            }
+//        })
 
         binding.SearchTextEdit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
@@ -53,7 +61,8 @@ class Search : Fragment() {
             ) {
                 val text = binding.SearchTextEdit.text.toString()
                 //TODO send the text to the firestore to get data according to the text
-                Toast.makeText(context , "hello there", Toast.LENGTH_SHORT).show()
+
+
             }
         })
         return binding.root
